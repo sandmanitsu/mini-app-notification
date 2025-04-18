@@ -14,11 +14,25 @@ type Config struct {
 	Port  string `env:"PORT" env-required:"true"`
 	Env   string `env:"ENV" env-required:"true"`
 	Kafka Kafka
+	TGBOT TGBOT
+	DB    DB
 }
 
 type Kafka struct {
 	KafkaBroker string `env:"KAFKA_BROKER" env-required:"true"`
 	KafkaTopic  string `env:"KAFKA_TOPIC" env-required:"true"`
+}
+
+type TGBOT struct {
+	BotToken string `env:"BOT_TOKEN" env-required:"true"`
+}
+
+type DB struct {
+	Host     string `env:"DBHOST" env-required:"true"`
+	User     string `env:"USER" env-required:"true"`
+	Password string `env:"PASSWORD" env-required:"true"`
+	Port     int    `env:"DBPORT" env-required:"true"`
+	DBname   string `env:"DBNAME" env-required:"true"`
 }
 
 var (
